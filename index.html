@@ -1,138 +1,171 @@
+Untuk memodifikasi skrip yang ada agar menjadi responsif dan menambahkan gambar dari AI sesuai judul paket tur, kita dapat mengikuti langkah-langkah berikut:
+
+1. **Tambahkan Gambar AI untuk Setiap Paket**: Kita akan menambahkan elemen gambar `<img>` dalam setiap div paket. Untuk menambahkan gambar dari AI, Anda dapat menggunakan placeholder gambar atau gambar asli sesuai dengan kebutuhan.
+
+2. **Buat Desain Responsif**: Gunakan CSS media queries untuk memastikan desain halaman tetap responsif di berbagai perangkat.
+
+3. **Sederhanakan JavaScript**: Gantilah penggunaan `document.write` dengan metode yang lebih modern untuk menampilkan tanggal.
+
+Berikut adalah contoh lengkap yang telah dimodifikasi:
+
+### `index.html`
+
+```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Agen travel untuk paket tour Gili Trawangan dan Gunung Rinjani, menyediakan akomodasi, guiding, dan trekking berpengalaman.">
-    <title>Travel Agen - Gili Trawangan & Gunung Rinjani</title>
+    <title>Agen Travel - Gili Trawangan & Gunung Rinjani</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header, footer {
+            background: #333;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+        section {
+            padding: 1rem;
+        }
+        h1, h2, h3 {
+            margin-top: 0;
+        }
+        .package {
+            border: 1px solid #ddd;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .package img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007bff;
+            border: none;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            .package {
+                padding: 0.5rem;
+            }
+            button {
+                padding: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<p>Last Update :Today&nbsp;<script language="JavaScript">
-var dtNow = new Date();
-var dtMonth = dtNow.getMonth();
-var dtYear = dtNow.getFullYear();
-if(dtMonth == 0) {
-    var dtMonthNow = "Jan"
-}
-if(dtMonth == 1) {
-    var dtMonthNow = "Feb"
-}
-if(dtMonth == 2) {
-    var dtMonthNow = "Mar"
-}
-if(dtMonth == 3) {
-    var dtMonthNow = "Apr"
-}
-if(dtMonth == 4) {
-    var dtMonthNow = "Mei"
-}
-if(dtMonth == 5) {
-    var dtMonthNow = "Jun"
-}
-if(dtMonth == 6) {
-    var dtMonthNow = "Jul"
-}
-if(dtMonth == 7) {
-    var dtMonthNow = "Aug"
-}
-if(dtMonth == 8) {
-    var dtMonthNow = "Sep"
-}
-if(dtMonth == 9) {
-    var dtMonthNow = "Okt"
-}
-if(dtMonth == 10) {
-    var dtMonthNow = "Nov"
-}
-if(dtMonth == 11) {
-    var dtMonthNow = "Des"
-}
-if(dtNow.getDay() == 0) {
-    var dtDay = "Minggu"
-}
-if(dtNow.getDay() == 1) {
-    var dtDay = "Senin"
-}
-if(dtNow.getDay() == 2) {
-    var dtDay = "Selasa"
-}
-if(dtNow.getDay() == 3) {
-    var dtDay = "Rabo"
-}
-if(dtNow.getDay() == 4) {
-    var dtDay = "Kamis"
-}
-if(dtNow.getDay() == 5) {
-    var dtDay = "Jum'at"
-}
-if(dtNow.getDay() == 6) {
-    var dtDay = "Sabtu"
-}
-var dtDate = dtNow.getDate();
-document.write(dtDate + " " + dtMonthNow + ", " + dtYear + " ");
-    </script>
+    <p id="last-update">Last Update: </p>
     <header>
         <h1>Selamat Datang di Agen Travel Kami</h1>
-        <p>Menawarkan Paket Tour ke Gili Trawangan & Gunung Rinjani</p>
+        <p>Menawarkan Paket Tour ke Gili Trawangan &amp; Gunung Rinjani</p>
     </header>
-
     <section id="about">
         <h2>Tentang Kami</h2>
         <p>Kami adalah agen travel berpengalaman yang menyediakan paket tour lengkap ke Gili Trawangan dan Gunung Rinjani. Kami menangani akomodasi, guiding, dan trekking dengan tim berpengalaman.</p>
         <p>Alamat kami: Gili Trawangan</p>
-        <p>No WhatsApp: <a href="https://wa.me/62817366355" target="_blank">0817366355</a></p>
-        <p>Pembayaran dapat dilakukan melalui <a href="https://www.paypal.com" target="_blank">PayPal</a>.</p>
+        <p>No WhatsApp: <a target="_blank" rel="noopener noreferrer" href="https://wa.me/62817366355">0817366355</a></p>
+        <p>Pembayaran dapat dilakukan melalui <a target="_blank" rel="noopener noreferrer" href="https://www.paypal.com">PayPal</a>.</p>
     </section>
-
     <section id="packages">
         <h2>Paket Tour Kami</h2>
         <div class="package">
             <h3>Paket 1: Gili Trawangan Beach Relaxation</h3>
+            <img src="https://via.placeholder.com/600x400?text=Gili+Trawangan+Beach" alt="Gili Trawangan Beach">
             <p>Nikmati hari santai di pantai Gili Trawangan dengan akomodasi mewah.</p>
             <button onclick="order('Paket 1')">Pesan Sekarang</button>
         </div>
         <div class="package">
             <h3>Paket 2: Gili Trawangan Adventure</h3>
+            <img src="https://via.placeholder.com/600x400?text=Gili+Trawangan+Adventure" alt="Gili Trawangan Adventure">
             <p>Petualangan seru dengan aktivitas snorkeling dan diving.</p>
             <button onclick="order('Paket 2')">Pesan Sekarang</button>
         </div>
         <div class="package">
             <h3>Paket 3: Gunung Rinjani Trekking</h3>
+            <img src="https://via.placeholder.com/600x400?text=Gunung+Rinjani+Trekking" alt="Gunung Rinjani Trekking">
             <p>Pengalaman trekking menantang ke puncak Gunung Rinjani dengan pemandu berpengalaman.</p>
             <button onclick="order('Paket 3')">Pesan Sekarang</button>
         </div>
         <div class="package">
-            <h3>Paket 4: Gili Trawangan & Rinjani Combo</h3>
+            <h3>Paket 4: Gili Trawangan &amp; Rinjani Combo</h3>
+            <img src="https://via.placeholder.com/600x400?text=Combo+Gili+Trawangan+Rinjani" alt="Gili Trawangan & Gunung Rinjani Combo">
             <p>Gabungan paket santai dan trekking untuk pengalaman lengkap.</p>
             <button onclick="order('Paket 4')">Pesan Sekarang</button>
         </div>
         <div class="package">
             <h3>Paket 5: Gili Trawangan Honeymoon</h3>
+            <img src="https://via.placeholder.com/600x400?text=Gili+Trawangan+Honeymoon" alt="Gili Trawangan Honeymoon">
             <p>Paket romantis untuk pasangan yang ingin menikmati momen spesial di Gili Trawangan.</p>
             <button onclick="order('Paket 5')">Pesan Sekarang</button>
         </div>
         <div class="package">
             <h3>Paket 6: Gunung Rinjani Sunrise</h3>
+            <img src="https://via.placeholder.com/600x400?text=Gunung+Rinjani+Sunrise" alt="Gunung Rinjani Sunrise">
             <p>Treking untuk melihat matahari terbit yang menakjubkan di Gunung Rinjani.</p>
             <button onclick="order('Paket 6')">Pesan Sekarang</button>
         </div>
         <div class="package">
             <h3>Paket 7: Gili Trawangan Cultural Tour</h3>
+            <img src="https://via.placeholder.com/600x400?text=Gili+Trawangan+Cultural+Tour" alt="Gili Trawangan Cultural Tour">
             <p>Jelajahi budaya lokal Gili Trawangan dengan tur budaya mendalam.</p>
             <button onclick="order('Paket 7')">Pesan Sekarang</button>
         </div>
         <div class="package">
-            <h3>Paket 8: Gunung Rinjani Adventure & Relax</h3>
+            <h3>Paket 8: Gunung Rinjani Adventure &amp; Relax</h3>
+            <img src="https://via.placeholder.com/600x400?text=Gunung+Rinjani+Adventure+%26+Relax" alt="Gunung Rinjani Adventure & Relax">
             <p>Kombinasi petualangan trekking dan relaksasi di Gili Trawangan.</p>
             <button onclick="order('Paket 8')">Pesan Sekarang</button>
         </div>
     </section>
-
     <footer>
         <p>&copy; 2024 Agen Travel. Semua hak dilindungi.</p>
-        <p><a href="https://wa.me/62817366355" target="_blank">Hubungi Kami di WhatsApp</a></p>
+        <p><a target="_blank" rel="noopener noreferrer" href="https://wa.me/62817366355">Hubungi Kami di WhatsApp</a></p>
     </footer>
+    <script>
+        // Script untuk menampilkan tanggal pembaruan terakhir
+        function formatDate(date) {
+            const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
+            const months = ["Jan", "Feb", "Mar", "Apr", "Mei", "Jun", "Jul", "Aug", "Sep", "Okt", "Nov", "Des"];
+            const dayName = days[date.getDay()];
+            const monthName = months[date.getMonth()];
+            const day = date.getDate();
+            const year = date.getFullYear();
+            return `${dayName}, ${day} ${monthName}, ${year}`;
+        }
+
+        document.getElementById('last-update').innerHTML = `Last Update: ${formatDate(new Date())}`;
+        
+        function order(packageName) {
+            const phoneNumber = '62817366355';
+            const message = `Halo, saya tertarik untuk memesan ${packageName}.`;
+            const waUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(waUrl, '_blank');
+        }
+    </script>
 </body>
-</html>
